@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IoSearch, IoClose } from "react-icons/io5";
 import data from "../assets/files/city-list.json";
 
 const Search = ({ getWeatherDetails, cityName, setCityName, setCityID }) => {
+    const inputRef = useRef(null);
     const [isFocus, setIsFocus] = useState(false);
     const [city, setcity] = useState("");
     const lastSave = localStorage.getItem("lastLocationData");
@@ -15,7 +16,7 @@ const Search = ({ getWeatherDetails, cityName, setCityName, setCityID }) => {
 
     return (
         <div className={`z-20 w-[80%] md:w-[350px]  absolute ${lastSave !== null ? " top-28 sm:top-24 " : "top-1/3"} `}>
-            <div className="relative h-full shadow-lg text-white">
+            <div className="relative  h-full shadow-lg text-white">
                 <input
                     onChange={(e) => {
                         setCityName(e.target.value);
@@ -30,16 +31,21 @@ const Search = ({ getWeatherDetails, cityName, setCityName, setCityID }) => {
                         }, 200);
                     }}
                     value={cityName}
+                    ref={inputRef}
                     type="text"
                     spellCheck="false"
                     placeholder="search a city"
-                    className={`bg-[#ffffff39]  placeholder-[#ffffff77] text-white pr-[88px] p-2 text-xl rounded-md w-full  focus:outline-none`}
+                    className={`bg-[#ffffff39] placeholder-[#ffffff77] text-white pr-[88px] p-2 text-xl rounded-md w-full  focus:outline-none`}
                 ></input>
                 {cityName && (
                     <IoClose
                         className="absolute size-7 top-[50%] translate-y-[-50%] right-[58px]"
                         onClick={() => {
                             setCityName("");
+                            setTimeout(() => {
+                                inputRef.current?.focus();
+                                setIsFocus(true);
+                            }, 300);
                         }}
                     />
                 )}
