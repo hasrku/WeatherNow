@@ -32,7 +32,8 @@ const Search = ({ getWeatherDetails, cityName, setCityName, setCityID }) => {
                     value={cityName}
                     type="text"
                     spellCheck="false"
-                    className={`bg-[#ffffff39] text-white pr-[88px] p-2 text-xl rounded-md w-full  focus:outline-none`}
+                    placeholder="search a city"
+                    className={`bg-[#ffffff39]  placeholder-[#ffffff77] text-white pr-[88px] p-2 text-xl rounded-md w-full  focus:outline-none`}
                 ></input>
                 {cityName && (
                     <IoClose
