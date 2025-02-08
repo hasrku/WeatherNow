@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaWind, FaWater, FaArrowLeftLong, FaRegStar, FaStar } from "react-icons/fa6";
 import clear from "../assets/img/clear.png";
+import clearN from "../assets/img/clear-night.png";
 import fewClouds from "../assets/img/few-clouds.png";
+import fewCloudsN from "../assets/img/few-clouds-night.png";
 import clouds from "../assets/img/clouds.png";
 import rain from "../assets/img/rain.png";
 import thunder from "../assets/img/thunderstrom.png";
@@ -14,9 +16,9 @@ const WeatherCard = ({ setIsSavePresent, savesArray, addToFavs, removeFromFavs, 
 
     const allIcons = {
         "01d": clear,
-        "01n": clear,
+        "01n": clearN,
         "02d": fewClouds,
-        "02n": fewClouds,
+        "02n": fewCloudsN,
         "03d": clouds,
         "03n": clouds,
         "04d": clouds,
