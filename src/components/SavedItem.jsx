@@ -8,7 +8,7 @@ const SavedItem = ({ name, id, removeFromFavs, getWeatherDetails, setIsOpen, set
         <div className="relative">
             <div className="relative z-[60] flex items-center px-4 w-full h-16 bg-bgCol rounded-2xl">
                 <p
-                    className="text-xl cursor-pointer"
+                    className="text-xl cursor-pointer flex-grow"
                     onClick={() => {
                         // getWeatherDetails(name);
                         setCityID(id);
@@ -18,7 +18,7 @@ const SavedItem = ({ name, id, removeFromFavs, getWeatherDetails, setIsOpen, set
                 >
                     {name}
                 </p>
-                <div className="absolute z-[60] right-3 top-[50%] translate-y-[-50%] w-9 h-full flex justify-center items-center">
+                <div className="absolute z-[60] right-4 top-[50%] translate-y-[-50%] w-9 h-full flex justify-end items-center">
                     <HiDotsVertical
                         onClick={() => setOpenOptions(true)}
                         className="cursor-pointer size-6"
